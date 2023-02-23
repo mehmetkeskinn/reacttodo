@@ -1,0 +1,27 @@
+@use "../../styles/main.scss";
+
+.footer {
+  @include main.center;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: 4rem;
+  color: lighten(main.$color-primary-light-2, 5%);
+  font-weight: 500;
+
+  @media (hover: hover) {
+    &:hover {
+      .heart {
+        color: main.$color-tertiary-light;
+      }
+
+      a {
+        color: main.$color-tertiary-light;
+      }
+    }
+  }
+
+  .heart {
+    color: rgba(main.$color-tertiary-light, 0.5);
+    transition: all 0.4s;
+  }
+}

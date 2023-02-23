@@ -1,0 +1,30 @@
+@use "../../styles/main.scss";
+
+.section {
+  @include main.center;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.button {
+  display: none;
+
+  &:checked + label {
+    color: main.$color-tertiary-light;
+    transform: translateY(-0.3rem);
+  }
+}
+
+.icon {
+  display: inline-block;
+  font-size: 4rem;
+  cursor: pointer;
+  color: main.$color-secondary;
+  transition: all 0.2s;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-0.3rem);
+    }
+  }
+}

@@ -1,0 +1,131 @@
+@use "./main";
+
+:root {
+  height: 100%;
+  font-size: 62.5%; // 1 rem = 10px
+  scroll-behavior: smooth;
+
+  @media (any-pointer: coarse) {
+    @include main.respond(xl) {
+      font-size: 75%;
+    }
+
+    @include main.respond(lg) {
+      font-size: 56.25%;
+    }
+
+    @include main.respond(md) {
+      font-size: 50%;
+    }
+
+    @include main.respond(sm) {
+      font-size: 46%;
+    }
+
+    @include main.respond(xs) {
+      font-size: 42%;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  font-size: main.$default-font-size;
+  background-color: main.$color-primary;
+  color: main.$color-white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s;
+
+  @media (hover: hover) {
+    &:hover {
+      color: main.$color-tertiary-light;
+    }
+  }
+}
+
+h1 {
+  font-weight: inherit;
+}
+
+/* Remove mobile highligh color */
+input,
+textarea,
+button,
+select,
+a,
+i,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* IOS input bug fix */
+input {
+  border-radius: 0;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* IOS disabled color fix */
+input:disabled,
+textarea:disabled,
+input:disabled::placeholder,
+textarea:disabled::placeholder {
+  -webkit-text-fill-color: currentcolor; /* 1. sets text fill to current `color` for safari */
+  opacity: 1; /* 2. correct opacity on iOS */
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: darken(main.$color-primary, 5%);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: main.$color-primary-light;
+}
+
+/* Handle on hover */
+@media (hover: hover) {
+  ::-webkit-scrollbar-thumb:hover {
+    background: main.$color-primary-light-2;
+  }
+}

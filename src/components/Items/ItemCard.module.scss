@@ -1,0 +1,83 @@
+@use "../../styles/main";
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  gap: 1rem;
+  transition: scale 0.2s;
+
+  @media (hover: hover) {
+    &:hover {
+      .removeIcon {
+        clip-path: circle(50% at 50% 50%);
+      }
+    }
+  }
+
+  &:focus-within {
+    scale: 1.05;
+  }
+}
+
+.input {
+  background-color: transparent;
+  color: main.$color-white;
+  border: none;
+  font-size: 2.3rem;
+  font-family: inherit;
+  width: 100%;
+  padding-bottom: 1rem;
+  transition: all 0.3s;
+  cursor: text;
+  border-bottom: 1px solid main.$color-tertiary-light;
+  resize: none;
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  &:focus-within {
+    .input {
+      outline: none;
+    }
+  }
+}
+
+.removeIcon {
+  @include main.center;
+  min-width: 5rem;
+  background-color: transparent;
+  border: none;
+  font-size: 3.5rem;
+  color: main.$color-tertiary-light;
+  cursor: pointer;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+
+  @media (hover: hover) {
+    clip-path: circle(0% at 50% 50%);
+
+    &:hover {
+      transform: rotate(135deg);
+    }
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.completedTextarea {
+  border-bottom: 1px solid main.$color-secondary;
+}
+
+.completedRemoveIcon {
+  color: main.$color-secondary;
+}

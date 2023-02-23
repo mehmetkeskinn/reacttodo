@@ -1,0 +1,80 @@
+@use "../../styles/main";
+
+.form {
+  @include main.center;
+  flex-direction: column;
+  min-width: 40rem;
+  height: 10rem;
+  margin: 1rem 0 5rem;
+
+  @media (hover: hover) {
+    &:hover {
+      .input {
+        width: 24rem;
+        border-bottom: 1px solid main.$color-tertiary-light;
+      }
+
+      .submitButton {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &:focus-within {
+    width: 100%;
+
+    .submitButton {
+      transform: translateY(1.5rem) rotate(180deg);
+    }
+
+    .focusButton {
+      opacity: 0;
+      z-index: -99;
+      transform: translateY(1.5rem);
+    }
+
+    .input {
+      transform: translateY(1.5rem);
+      color: main.$color-white;
+      outline: none;
+      width: 70%;
+      border-bottom: 1px solid main.$color-tertiary-light;
+      cursor: text;
+    }
+  }
+}
+
+.submitButton {
+  @include main.center;
+  background-color: transparent;
+  border: none;
+  font-size: 4rem;
+  color: main.$color-tertiary-light;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-bottom: 1rem;
+}
+
+.focusButton {
+  background-color: transparent;
+  border: none;
+  color: main.$color-white;
+  font-size: 2rem;
+  opacity: 1;
+  user-select: none;
+  z-index: 99;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: transparent;
+  border-bottom: 0px solid main.$color-tertiary-light;
+  width: 0;
+  transform: translateY(-2rem);
+  transition: all 0.4s;
+  cursor: pointer;
+}

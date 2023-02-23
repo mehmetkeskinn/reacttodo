@@ -1,0 +1,33 @@
+@use "../../styles/main";
+
+.list {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  min-width: 40rem;
+  max-width: 90rem;
+  width: 55vw;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  color: main.$color-tertiary-light;
+  transition: all 0.2s;
+
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+      color: main.$color-tertiary-dark;
+    }
+  }
+}
+
+.fallback {
+  @include main.center;
+  width: 100%;
+  font-style: italic;
+  font-size: 1.7rem;
+  margin-top: 5rem;
+}
